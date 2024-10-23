@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Spinner from '../Layout/Spinner';
+import PropTypes from 'prop-types';
 
 const User = ({ getUser, user, loading }) => {
-  const { login } = useParams(); // Get the login parameter from the URL
+  const { login } = useParams(); 
 
   useEffect(() => {
-    getUser(login); // Call getUser when the component mounts
-  }, [getUser, login]); // Add getUser and login as dependencies
+    getUser(login); 
+  }, [getUser, login]); 
 
-  // Destructure user properties safely to handle loading or undefined user
+  
   const {
     name,
     avatar_url,
@@ -23,7 +25,8 @@ const User = ({ getUser, user, loading }) => {
     hireable,
   } = user || {};
 
-  if (loading) return <div>Loading...</div>; // Show loading state
+ 
+  if (loading) return <Spinner/>
 
   return (
     <div>
@@ -43,4 +46,9 @@ const User = ({ getUser, user, loading }) => {
   );
 };
 
+User.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
+  getUser: PropTypes.func.isRequired
+}
 export default User;
