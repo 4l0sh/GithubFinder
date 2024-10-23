@@ -6,6 +6,7 @@ import Users from './Components/users/Users';
 import Search from './Components/users/search'; // Ensure the correct casing
 import axios from 'axios';
 import Alert from './Components/Layout/Alert';
+import About from './Components/Pages/About';
 
 class App extends Component {
   state = {
@@ -65,6 +66,7 @@ class App extends Component {
                   </Fragment>
                 }
               />
+              <Route path='/about' element={<About />} />
             </Routes>
           </div>
         </div>
