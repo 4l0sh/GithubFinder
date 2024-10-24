@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RepoItem from './RepoItem';
 
-const Repos = ({ repos }) => {  // Changed 'repos' to 'Repos' for proper component naming
+const Repos = ({ repos }) => {
   return (
     <div>
       {repos.map(repo => (
