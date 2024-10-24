@@ -20,10 +20,13 @@ import Repos from '../repos/repos';
 const User = ({ getUser, getUserRepos, user, loading, repos }) => {
   const { login } = useParams();
 
+
+
   useEffect(() => {
+  
     getUser(login);
     getUserRepos(login);
-  }, [getUser, getUserRepos, login]);
+  }, []);
 
   const {
     name,
