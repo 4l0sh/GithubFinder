@@ -9,6 +9,8 @@ import axios from 'axios';
 import Alert from './Components/Layout/Alert';
 import About from './Components/Pages/About';
 
+import GithubState from './context/gitHub/GithubState';
+
   const App = () => {
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
@@ -99,6 +101,10 @@ import About from './Components/Pages/About';
 
 
     return (
+
+     <GithubState>
+
+    
       <Router>
         <div className='App'>
           <Navbar title='Github Finder' />
@@ -135,7 +141,8 @@ import About from './Components/Pages/About';
             </Routes>
           </div>
         </div>
-      </Router>
+      </Router> 
+     </GithubState>
     );
   
 }

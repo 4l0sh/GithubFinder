@@ -26,6 +26,7 @@ const User = ({ getUser, getUserRepos, user, loading, repos }) => {
   
     getUser(login);
     getUserRepos(login);
+    //eslint-desable-next-line
   }, []);
 
   const {
