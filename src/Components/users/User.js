@@ -1,9 +1,9 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Spinner from '../Layout/Spinner';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/repos';
+import GithubContext from '../../context/gitHub/githubContext';
 
 // export class User extends Component {
 //   componentDidMount(){
@@ -17,9 +17,12 @@ import Repos from '../repos/repos';
 
 // }
 
-const User = ({ getUser, getUserRepos, user, loading, repos }) => {
+const User = ({  }) => {
   const { login } = useParams();
 
+  const githubContext = useContext(GithubContext);
+
+  const {getUser, loading, user, repos,  getUserRepos } = githubContext;
 
 
   useEffect(() => {
@@ -28,6 +31,8 @@ const User = ({ getUser, getUserRepos, user, loading, repos }) => {
     getUserRepos(login);
     //eslint-desable-next-line
   }, []);
+
+ 
 
   const {
     name,
@@ -120,11 +125,5 @@ const User = ({ getUser, getUserRepos, user, loading, repos }) => {
   );
 };
 
-User.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
-  getUser: PropTypes.func.isRequired,
-  getUserRepos: PropTypes.func.isRequired,
-  repos: PropTypes.array.isRequired,
-};
+
 export default User;
