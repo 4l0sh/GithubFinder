@@ -1,5 +1,5 @@
 import React, {useReducer} from "react";
-import AlertContext from './alertContext';
+import AlertContext from './alerContext';
 import AlertReducer from './alertReducer';
 import {
     SET_ALERT,

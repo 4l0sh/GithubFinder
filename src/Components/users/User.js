@@ -5,34 +5,19 @@ import { Link } from 'react-router-dom';
 import Repos from '../repos/repos';
 import GithubContext from '../../context/gitHub/githubContext';
 
-// export class User extends Component {
-//   componentDidMount(){
-//     this.props.getUserRepos(this.match.params.login);
-//   }
-
-// static propTypes = {
-
-//   repos: PropTypes.array.isRequired
-// }
-
-// }
-
 const User = () => {
   const { login } = useParams();
 
   const githubContext = useContext(GithubContext);
 
-  const {getUser, loading, user, repos,  getUserRepos } = githubContext;
-
+  const { getUser, loading, user, repos, getUserRepos } = githubContext;
 
   useEffect(() => {
-    console.log(login)
+    console.log(login);
     getUser(login);
     getUserRepos(login);
     //eslint-desable-next-line
   }, []);
-
- 
 
   const {
     name,
@@ -124,6 +109,5 @@ const User = () => {
     </Fragment>
   );
 };
-
 
 export default User;
