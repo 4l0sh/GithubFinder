@@ -17,7 +17,7 @@ import GithubContext from '../../context/gitHub/githubContext';
 
 // }
 
-const User = ({  }) => {
+const User = () => {
   const { login } = useParams();
 
   const githubContext = useContext(GithubContext);
@@ -26,7 +26,7 @@ const User = ({  }) => {
 
 
   useEffect(() => {
-  
+    console.log(login)
     getUser(login);
     getUserRepos(login);
     //eslint-desable-next-line

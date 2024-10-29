@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Layout/Navbar';
 import './App.css';
@@ -63,7 +63,7 @@ import GithubState from './context/gitHub/GithubState';
               />
               <Route path='/about' element={<About />} />
               <Route
-                path='/user/:login' component= {User} />
+                path='/user/:login' element={<User/>} />
             </Routes>
           </div>
         </div>
