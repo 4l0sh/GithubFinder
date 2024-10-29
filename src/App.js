@@ -7,8 +7,9 @@ import User from './Components/users/User';
 import Search from './Components/users/search';
 import Alert from './Components/Layout/Alert';
 import About from './Components/Pages/About';
-
 import GithubState from './context/gitHub/GithubState';
+import AlertState from './context/gitHub/alert/AlertState';
+
 
   const App = () => {
    
@@ -16,30 +17,20 @@ import GithubState from './context/gitHub/GithubState';
     const [alert, setAlert] = useState(null);
 
 
-  //   const getUserRepos = async (username) => {
-  //     setLoading (true);
-  //   const res = await axios.get(
-  //     `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-  //   );
 
-  //   setRepos(res.data);
-  //   setLoading(false);
 
+  // const showAlert = (msg, type) => {
+  //   setAlert({ msg, type });
+
+  //   setTimeout(() => setAlert( null ), 3000);
   // };
-
-
-
-  const showAlert = (msg, type) => {
-    setAlert({ msg, type });
-
-    setTimeout(() => setAlert( null ), 3000);
-  };
 
 
 
     return (
 
      <GithubState>
+      <AlertState> 
 
     
       <Router>
@@ -52,11 +43,7 @@ import GithubState from './context/gitHub/GithubState';
                 path='/'
                 element={
                   <Fragment>
-                    <Search
-                      // searchUsers={searchUsers}
-                      
-                      setAlert={showAlert}
-                    />
+                    <Search/>
                     <Users />
                   </Fragment>
                 }
@@ -68,6 +55,7 @@ import GithubState from './context/gitHub/GithubState';
           </div>
         </div>
       </Router> 
+      </AlertState> 
      </GithubState>
     );
   
